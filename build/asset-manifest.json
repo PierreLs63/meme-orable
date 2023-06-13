@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c74d94c3.css",
+    "main.js": "/static/js/main.913d1c86.js",
+    "static/js/787.dd4029b4.chunk.js": "/static/js/787.dd4029b4.chunk.js",
+    "static/media/coeurna.png": "/static/media/coeurna.69ec24b0f16f3b918046.png",
+    "static/media/coeura.png": "/static/media/coeura.ffab6c6f9776b3333825.png",
+    "static/media/plus.png": "/static/media/plus.78f13820545d2ed06a88.png",
+    "index.html": "/index.html",
+    "main.c74d94c3.css.map": "/static/css/main.c74d94c3.css.map",
+    "main.913d1c86.js.map": "/static/js/main.913d1c86.js.map",
+    "787.dd4029b4.chunk.js.map": "/static/js/787.dd4029b4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c74d94c3.css",
+    "static/js/main.913d1c86.js"
+  ]
+}
