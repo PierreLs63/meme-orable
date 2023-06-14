@@ -18,11 +18,11 @@ function Photo2() {
   const togglePopup = () => {
       setIsOPen(!isOpen);
   }
-
+  const a = localStorage.getItem('token');
+  const authToken= a.slice(1, -1);
   useEffect(() => {
     const apiUrl = 'http://localhost:3001/posts/';
-    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmYxMTU0YjgzZDgwZTcwNTEyN2FlZiIsImlhdCI6MTY4NTAwMDU0OH0.UPkrasCsUM259ZGmsQ6xHqDv-iRJ6sffWb3fQi4RDbg';
-  
+
     axios.get(apiUrl, {
       headers: {
         Autorization: `Bearer ${authToken}`
@@ -95,7 +95,7 @@ function Photo2() {
     }
   
     const apiUrl = 'http://localhost:3001/posts/' + _id + '/like';
-    const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmYxMTU0YjgzZDgwZTcwNTEyN2FlZiIsImlhdCI6MTY4NTAwMDU0OH0.UPkrasCsUM259ZGmsQ6xHqDv-iRJ6sffWb3fQi4RDbg';
+  
 
     axios.patch(apiUrl, {userId}, {
       headers: {
@@ -152,7 +152,7 @@ content={<div>
               </div>
             ))
           ) : (
-            <p>lala</p>
+            authToken
           )}
         </div>
       </div>

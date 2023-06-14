@@ -38,7 +38,6 @@ const LoginForm = (props) => {
 
   // State
   const [email, setEmail] = useState("");
-  const [token, setToken] = useState("");
 
   const [password, setPassword] = useState("");
   const [isChecked, setIsChecked] = useState(false);
@@ -90,9 +89,10 @@ const LoginForm = (props) => {
           setErrorMessage("Incorrect email or password.");
           setIsFormValid(false);
         }
-        const token = response.data.token; // Récupérer le token à partir de la réponse
-        localStorage.setItem('token', JSON.stringify(token));
-        setToken(token);
+        const tokenU = response.data.token; // Récupérer le token à partir de la réponse
+        
+        localStorage.setItem('token', JSON.stringify(tokenU));
+        
         
       } catch (error) {
         // Handle any error that occurred during the request
