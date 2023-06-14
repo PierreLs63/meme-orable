@@ -129,7 +129,7 @@ content={<div>
 </div>}
 />}
 </div>
-      {storedToken}
+     
       <Utilisateur utilisateurs={utilisateurs} updateSelU={updateSelU} />
       <div className="container">
         <div className="content-wrapper">
@@ -143,8 +143,7 @@ content={<div>
                     src={likeCounts[_id] > 0 ? coeurr : coeurn}
                     alt="aime"
                   />
-                  {Object.keys(likes)}
-
+                  
                  
                   <div className="like-count">{likeCounts[_id]}</div>
                   <div className="comm">{description}</div>
