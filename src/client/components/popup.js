@@ -43,7 +43,7 @@ const Popup = props => {
     axios
       .post("http://localhost:3001/posts/", formData, {
         headers: {
-          Autorization: Bearer ${authToken}
+          Autorization: `Bearer ${authToken}`
         },
       })
       .then((response) => {
