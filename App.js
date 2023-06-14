@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 let currentLikes= 10;
-let createdAt =100;
-let timeEnd = 16202;// à diviser par 1000 à un moment peut être
+let createdAt =13000;
+let timeEnd = 13070;// à diviser par 1000 à un moment peut être
 let initialTime = timeEnd-createdAt;
-let A = 13015 - createdAt;//Date.now() - createdAt;
+let A = 13000 - createdAt;//Date.now() - createdAt;
 
 const Timer = () => {
   const [time, setTime] = useState(initialTime); // Temps initial en secondes
@@ -56,7 +56,9 @@ const Timer = () => {
 
   return (
     <div>
-      <button onClick={handleLike} id='button'>
+      <container id='likeContainer'>
+      <container id='like'>
+      <button onClick={handleLike} id='likeButton'>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -72,26 +74,31 @@ const Timer = () => {
 
       </button>
       <span id='spanned'>{displayedLikes} likes</span>
+      </container>
 
-      <container id='container'>
-      <svg width="200" height="200" transform="scale(0.25)">
-        <circle cx="100" cy="100" r="90" stroke="#ccc" strokeWidth="10" fill="transparent" />
+      <container id='timer'>
+      <svg width="50"  height="50"   >
+        <circle cx="25" cy="25" r="22.5" stroke="#ccc" strokeWidth="2.5" fill="transparent" />
         <circle
-          cx="100"
-          cy="100"
-          r="90"
+          left="0"
+          cx="25"
+          cy="25"
+          r="22.5"
           stroke="#ff0000"
-          strokeWidth="10"
-          strokeDasharray="565.48"
-          strokeDashoffset={565.48 - (progress / 100) * 565.48}
-          transform="rotate(-90 100 100)"
+          strokeWidth="2.5"
+          strokeDasharray="141.37"
+          strokeDashoffset={141.37 - (progress / 100) * 141.37}
+          transform="rotate(-90 25 25)"
           fill="transparent"
         />
-        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontSize="48px" fill="#000">
+        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" fontSize="12px" fill="#000">
           {formatTime()}
         </text>
       </svg>
       </container>
+      </container>
+      
+      
 
       
     </div>
