@@ -5,6 +5,8 @@ import coeurn from '../data/coeurna.png';
 import Utilisateur from './Utilisateur';
 import '../styles/App.css';
 import Popup from "./popup";
+import { useNavigate } from 'react-router-dom';
+
 
 function Photo2() {
   const [photoList, setPhotoList] = useState([]);
@@ -15,11 +17,14 @@ function Photo2() {
   const [isLike, setIsLike] = useState({});
   const storedToken = localStorage.getItem('token');
   const [isOpen, setIsOPen] = useState(false);
+  const navigate = useNavigate();
   const togglePopup = () => {
       setIsOPen(!isOpen);
   }
   const a = localStorage.getItem('token');
   const authToken= a.slice(1, -1);
+  const b = localStorage.getItem('userId') ;
+  const authUserId= b.slice(1, -1);
   useEffect(() => {
     const apiUrl = 'http://localhost:3001/posts/';
 
@@ -75,42 +80,37 @@ function Photo2() {
     []
   );
 
-  function handleClick(_id, likes,userId) {
-    if (isLike[_id] === false) {
-      setLikeCounts((prevLikeCounts) => ({
-        ...prevLikeCounts,
-        [_id]: prevLikeCounts[_id] + 1,
-      }));
-      isLike[_id] = true;
-      setLikes2([...likes2, _id]);
-
-      
-    } else {
-      setLikeCounts((prevLikeCounts) => ({
-        ...prevLikeCounts,
-        [_id]: prevLikeCounts[_id] - 1,
-      }));
-      isLike[_id] = false;
-      setLikes2(likes2.filter((id) => id !== _id));
-    }
   
+  function handleClick(_id) {
     const apiUrl = 'http://localhost:3001/posts/' + _id + '/like';
   
-
-    axios.patch(apiUrl, {userId}, {
+    axios.patch(apiUrl, { userId: authUserId }, {
       headers: {
         Autorization: `Bearer ${authToken}`,
-        Body: { "userId": userId }
+        Body: { "userId": authUserId }
       },
     })
       .then((response) => {
         console.log(response);
+        const updatedPhotoList = photoList.map((photo) => {
+          if (photo._id === _id) {
+            return {
+              ...photo,
+              likes: response.data.likes
+            };
+          }
+          return photo;
+        });
+        setPhotoList(updatedPhotoList);
       })
       .catch((error) => {
         console.log(error.response);
       });
-    
-    
+  };
+  
+  
+  function deconection() {
+    navigate('/login');
   }
   
 
@@ -128,24 +128,26 @@ content={<div>
     <p>This is sample content for my pop.</p>
 </div>}
 />}
+<button onClick={() => deconection()}>Déconnection</button>
+
 </div>
      
       <Utilisateur utilisateurs={utilisateurs} updateSelU={updateSelU} />
       <div className="container">
         <div className="content-wrapper">
           {filteredPhotoList.length > 0 ? (
-            filteredPhotoList.map(({ _id, picturePath, pseudo, description ,likes,userId}, index) => (
+            filteredPhotoList.map(({ _id, picturePath, pseudo, userId,description ,likes}, index) => (
               <div className="instagram-photo" key={picturePath}>
                 <div className="username">{pseudo}</div>
                 <img src={`http://localhost:3001/assets/${picturePath}`} className="App-logo" alt="logo" />
-                <div className="Aime" onClick={() => handleClick(_id, likes,userId)}>
+                <div className="Aime" onClick={() => handleClick(_id)}>
                   <img
-                    src={likeCounts[_id] > 0 ? coeurr : coeurn}
+                    src={Object.keys(likes).includes(authUserId) ? coeurr : coeurn}
                     alt="aime"
                   />
                   
                  
-                  <div className="like-count">{likeCounts[_id]}</div>
+                  <div className="like-count">{Object.keys(likes).length}</div>
                   <div className="comm">{description}</div>
                   
                 </div>

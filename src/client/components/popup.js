@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import '../styles/popup.css';
 
-const authToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0NmYxMTU0YjgzZDgwZTcwNTEyN2FlZiIsImlhdCI6MTY4NTAwMDU0OH0.UPkrasCsUM259ZGmsQ6xHqDv-iRJ6sffWb3fQi4RDbg';
-
+const a = localStorage.getItem('token') || '';
+  const authToken= a.slice(1, -1);
+  const b = localStorage.getItem('userId') || '';
+  const authUserId= b.slice(1, -1);
 const Popup = props => {
   const [textboxValue, setTextboxValue] = useState('');
   const [selectedFile, setSelectedFile] = useState('');
@@ -35,7 +37,7 @@ const Popup = props => {
   
     const formData = new FormData();
     formData.append("picture", selectedFile);
-    formData.append("userId", "6475faae93a9ea8ff1cec1cf");
+    formData.append("userId", authUserId);
     formData.append("timeEnd", Date.now() + durationInMilliseconds);
     formData.append("description", textboxValue);
     formData.append("picturePath", selectedFile.name);

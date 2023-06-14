@@ -46,7 +46,7 @@ const LoginForm = (props) => {
   const [errorMessage, setErrorMessage] = useState(
     "Please fill in all form fields."
   );
-
+  localStorage.clear();
   const submitForm = async (e) => {
     e.preventDefault();
 
@@ -79,8 +79,12 @@ const LoginForm = (props) => {
         // Handle the response from the server
         if (response.status === 200) {
           // Login successful
+          const tokenU = response.data.token; // Récupérer le token à partir de la réponse
+        
+          localStorage.setItem('token', JSON.stringify(tokenU));
+          localStorage.setItem('userId', JSON.stringify(response.data.user._id));
           setIsFormValid(true);
-          localStorage.setItem('email', JSON.stringify(email));
+          
           
           //envoyer token et utilisatuer
           navigate('/page1'); // Naviguer vers la page 1
@@ -89,9 +93,6 @@ const LoginForm = (props) => {
           setErrorMessage("Incorrect email or password.");
           setIsFormValid(false);
         }
-        const tokenU = response.data.token; // Récupérer le token à partir de la réponse
-        
-        localStorage.setItem('token', JSON.stringify(tokenU));
         
         
       } catch (error) {
