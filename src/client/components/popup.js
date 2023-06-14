@@ -32,23 +32,24 @@ const Popup = props => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const durationInMilliseconds = (hours * 60 * 60 * 1000) + (minutes * 60 * 1000);
-
+  
     const formData = new FormData();
     formData.append("picture", selectedFile);
     formData.append("userId", "6475faae93a9ea8ff1cec1cf");
     formData.append("timeEnd", Date.now() + durationInMilliseconds);
     formData.append("description", textboxValue);
     formData.append("picturePath", selectedFile.name);
-
+  
     axios
       .post("http://localhost:3001/posts/", formData, {
         headers: {
-          Autorization: `Bearer ${authToken}`
+          Autorization: Bearer ${authToken}
         },
       })
       .then((response) => {
         // handle the response
         console.log(response);
+        props.handleClose(); // Close the popup window
       })
       .catch((error) => {
         // handle errors
