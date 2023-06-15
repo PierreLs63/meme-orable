@@ -6,7 +6,8 @@ import Utilisateur from './Utilisateur';
 import '../styles/App.css';
 import Popup from "./popup";
 import { useNavigate } from 'react-router-dom';
-
+import Card from "./Card";
+import Timer from "./Timer";
 
 function Photo2() {
   const [photoList, setPhotoList] = useState([]);
