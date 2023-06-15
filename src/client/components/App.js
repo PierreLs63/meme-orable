@@ -1,6 +1,7 @@
 
 import '../styles/App.css';
 import Homepage from '../components/Homepage.js'
+import Propos from '../components/Propos.js'
 import React from 'react';
 import LoginForm from "../components/LoginForm.js";
 import Photo2 from "../components/Photo2.js";
@@ -21,6 +22,7 @@ function App() {
       <Route path="/signin" element={<SigninForm />} />
       <Route path="/login" element={<LoginForm />} />
       <Route path="/page1" element={<Photo2 />} />
+      <Route path="/propos" element={<Propos />} />
       </Routes>
     </div>
   </Router>

@@ -1,84 +1,59 @@
-/* App.css */
-
 body {
-    background-color: #4247E7;
-    font-family: Arial, sans-serif;
-    min-width: 320px; /* Taille minimale en largeur */
-    max-width: 1920px; /* Taille maximale en largeur */
-    min-height: 320px; /* Taille minimale en hauteur */
-    max-height: 1080px; /* Taille maximale en hauteur */
-  }
-  
-
-  
-  .button-container {
-    position: absolute;
-    top: 350px; /* Changer la valeur selon votre préférence */
-    left: 420px; /* Changer la valeur selon votre préférence */
-    display: flex;
-    gap: 110px;
-  }
-  .button {
-    background-color: #FFE500;
-    color: black;
-    height: 80px;
-    width: 200px ;
-    font-size: 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .button:hover {
-    background-color: #c2af03;
-  }
-
-
-  .img{
-    position: absolute;
-    overflow:hidden;
-  }
-
-  .logo{
-  position: absolute;
-  top:-626px;
-  left:-511px; 
-  overflow:hidden;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #4247E7;
 }
 
-.contour_btn {
-  position: absolute;
-  top: 340px; /* Changer la valeur selon votre préférence */
-  left: 410px; /* Changer la valeur selon votre préférence */
-}
-.deco{
-  position: absolute;
-  top: 50px; /* Changer la valeur selon votre préférence */
-  left: 1060px; /* Changer la valeur selon votre préférence */
 
-}
 
-.text{
+.text {
+  top:10vh;
+  text-align: center;
+  margin-bottom: 20px;
   color:white;
 }
-.title{
-  font-size :100px;
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.deco {
+  width: 20vh;
+  height: 20vh;
   position: absolute;
-  top: 606px; /* Changer la valeur selon votre préférence */
-  left: 108px; /* Changer la valeur selon votre préférence */
+  right: 10vw;
+  bottom:0;
 
 
 }
-.noms{
-  font-size :20px;
-  position: absolute;
-  top: 910px; /* Changer la valeur selon votre préférence */
-  left: 108px; /* Changer la valeur selon votre préférence */
-
+.logo {
+  width: 20vh;
+  height: 20vh;
+  position:absolute;
+  left: 10vw;
+  bottom:0;
 }
 
+  .title {
+    font-size: 10vw;
+  }
 
+  .noms {
+    font-size: 3vw;
+  }
 
-  
-  
+  .button {
+    font-size: 3vw;
+    background-color: #FFE500;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    margin: 25px 10px;
+    cursor: pointer;
+  }
+  .button:hover {
+    background-color: #a09000;
+  }
