@@ -21,9 +21,9 @@ function Photo2() {
   const togglePopup = () => {
       setIsOPen(!isOpen);
   }
-  const a = localStorage.getItem('token');
+  const a = localStorage.getItem('token') || "";
   const authToken= a.slice(1, -1);
-  const b = localStorage.getItem('userId') ;
+  const b = localStorage.getItem('userId') || "";
   const authUserId= b.slice(1, -1);
   useEffect(() => {
     const apiUrl = 'http://localhost:3001/posts/';
@@ -128,7 +128,7 @@ content={<div>
     <p>This is sample content for my pop.</p>
 </div>}
 />}
-<button onClick={() => deconection()}>Déconnection</button>
+<button onClick={() => deconection()}>Déconnexion</button>
 
 </div>
      
