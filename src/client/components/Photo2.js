@@ -6,7 +6,7 @@ import Utilisateur from './Utilisateur';
 import '../styles/App.css';
 import Popup from "./popup";
 import { useNavigate } from 'react-router-dom';
-
+import Card from "./Card";
 
 function Photo2() {
   const [photoList, setPhotoList] = useState([]);
@@ -118,9 +118,9 @@ function Photo2() {
 
   return (
     <div>
-           <div className="App">
 
-<button onClick={togglePopup}>Click to open popup</button>
+
+<button className = "button" onClick={togglePopup}>Click to open popup</button>
 {isOpen && <Popup 
 handleClose={togglePopup}
 content={<div>
@@ -128,30 +128,24 @@ content={<div>
     <p>This is sample content for my pop.</p>
 </div>}
 />}
-<button onClick={() => deconection()}>Déconnexion</button>
+<button className = "button" onClick={() => deconection()}>Déconnexion</button>
 
-</div>
+
      
-      <Utilisateur utilisateurs={utilisateurs} updateSelU={updateSelU} />
+      <Utilisateur  utilisateurs={utilisateurs} updateSelU={updateSelU} />
       <div className="container">
         <div className="content-wrapper">
           {filteredPhotoList.length > 0 ? (
             filteredPhotoList.map(({ _id, picturePath, pseudo, userId,description ,likes}, index) => (
-              <div className="instagram-photo" key={picturePath}>
-                <div className="username">{pseudo}</div>
-                <img src={`http://localhost:3001/assets/${picturePath}`} className="App-logo" alt="logo" />
-                <div className="Aime" onClick={() => handleClick(_id)}>
-                  <img
-                    src={Object.keys(likes).includes(authUserId) ? coeurr : coeurn}
-                    alt="aime"
-                  />
-                  
-                 
-                  <div className="like-count">{Object.keys(likes).length}</div>
-                  <div className="comm">{description}</div>
-                  
-                </div>
-              </div>
+             <Card
+             name={pseudo}
+             isLiked={false}
+             source={`http://localhost:3001/assets/${picturePath}`} 
+             description={description}
+              createAt="1"
+              timeEnd="90000"
+             ></Card>
+              
             ))
           ) : (
             authToken

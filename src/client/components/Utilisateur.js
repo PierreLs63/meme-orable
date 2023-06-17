@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import React from 'react';
+import '../styles/App.css';
+
 
 function Utilisateur({utilisateurs, updateSelU}) {
     
@@ -9,7 +11,7 @@ function Utilisateur({utilisateurs, updateSelU}) {
       return (
       <div>
         <select name="cat" id="cat-select" onChange={(e) => updateSelU(e.target.value)} >
-        <option value="">--Filtrer--</option>
+        <option  value="">--Filtrer--</option>
         {utilisateurs.map((utilisateurs)=> ( <option key={utilisateurs} value={utilisateurs}>{utilisateurs}</option>))}
          
         </select>

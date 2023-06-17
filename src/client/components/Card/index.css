@@ -1,0 +1,86 @@
+.card {
+    margin: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 6px 10px 0 rgb(0 0 0 / 3%);
+    width: calc(100vw-40px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @media screen and (min-width: 640px) {
+    .card {
+      width: auto;
+    }
+  }
+  #timer {
+    position: relative;
+    top: -70px;
+    height: 0px;
+    margin: -10px 0px 0px 20px;
+  }
+  .card-footer {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #cbd2d9;
+  }
+  
+  .footer-text {
+    margin: 0px;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .like {
+    font-size: 14px;
+    color: red;
+    margin-right: 5px;
+  }
+  
+  .un-like {
+    font-size: 14px;
+    color: #cbd2d9;
+    margin-right: 5px;
+  }
+  
+  .comment {
+    font-size: 14px;
+    margin-right: 5px;
+    color: #333333;
+  }
+  
+  .post-details-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+  }
+  
+  .name {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    color: #171f46;
+    margin: 0px;
+  }
+  .description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    color: #171f46;
+    margin: 0px;
+  }
+  
+  .children-container {
+    margin-top: 10px;
+    margin-bottom: -50px;
+  }
+  .post-image {
+    width: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+  }
+  
