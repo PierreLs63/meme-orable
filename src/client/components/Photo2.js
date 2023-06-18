@@ -122,32 +122,31 @@ function Photo2() {
     <div>
 
 
-<button className = "button" onClick={togglePopup}>Click to open popup</button>
+<button className = "button" onClick={togglePopup}>Upload</button>
 {isOpen && <Popup 
 handleClose={togglePopup}
 content={<div>
-    <h2>Title</h2>
-    <p>This is sample content for my pop.</p>
+    <h2>Ajouter un post</h2>
+    <p>Soyez créatifs et respectueux</p>
 </div>}
 />}
 <button className = "button" onClick={() => deconection()}>Déconnexion</button>
 
-
-     
       <Utilisateur  utilisateurs={utilisateurs} updateSelU={updateSelU} />
       <div className="container">
         <div className="content-wrapper">
           {filteredPhotoList.length > 0 ? (
-            filteredPhotoList.map(({ _id, picturePath, pseudo, userId,description ,likes}, index) => (
-             <Card
-             name={pseudo}
-             isLiked={false}
-             source={`http://localhost:3001/assets/${picturePath}`} 
-             description={description}
-              createAt="1"
-              timeEnd="90000"
-             ></Card>
+            filteredPhotoList.map(({ _id, picturePath, pseudo, userId, description, likes }, index) => (
+              <Card
+                name={pseudo}
+                isLiked={true}
+                source={`http://localhost:3001/assets/${picturePath}`}
+                description={description}
+                createAt="1"
+                timeEnd="90000"
+              >
               
+              </Card>
             ))
           ) : (
             authToken

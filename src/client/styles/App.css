@@ -123,11 +123,14 @@
   align-items: center;
   margin-top: 10px;
   position: relative;
+  z-index:11;
 }
 
 .Aime img {
   width: 50px;
   margin-right: 5px; /* Ajouter une marge à droite pour espacer le cœur du nombre de likes */
+  z-index:11;
+
 }
 
 .Aime::before {
@@ -139,13 +142,15 @@
   margin-bottom: 50px;
   position: absolute;
   bottom: 0;
-  z-index: 0;
+  z-index: 11;
 }
 
 .like-count {
   margin-top: 10px;
   font-weight: bold;
   text-align: center;
+  z-index:11;
+
 }
 
 .comm{
@@ -154,6 +159,7 @@
   font-size: 0.75em;
   margin-bottom: 0.4em;
   font-weight: 600;
+  z-index:11;
   margin-left: 0.5em;
 
 }

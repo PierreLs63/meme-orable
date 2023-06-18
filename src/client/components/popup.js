@@ -62,28 +62,28 @@ const Popup = props => {
   return (
     <div className="popup-box">
       <div className="box">
-        <button className="btn-close" onClick={props.handleClose}>x</button>
+        <button className="btn-close" onClick={props.handleClose}>X</button>
         {props.content}
         <input type="file" onChange={handleFileUpload} className='fileInput' />
         {selectedFile ? (
-          <p>Selected file: {selectedFile.name}</p>
+          <p>Fichier choisi : {selectedFile.name}</p>
         ) : (
-          <p>No file uploaded</p>
+          <p>Pas de fichier enregistré</p>
         )}
         <form onSubmit={handleSubmit}>
           Description<br /><textarea type="text" name="description" className='desc' id="desc-input" onChange={handleDescChange}></textarea><br /><br />
-          Choose the duration of your post<br/><br/>
+          Durée d'affichage du post<br/><br/>
           <label>
-            Hours:
+            Heures : 
             <input type="number" value={hours} onChange={handleHoursChange} min={0} className="time"/>
           </label>
           <br /><br />
           <label>
-            Minutes:
+            Minutes : 
             <input type="number" value={minutes} onChange={handleMinutesChange} min={0} max={59} className="time"/>
           </label>
           <br /><br />
-          <button value='upload' className='btn' type="submit">Post</button>
+          <button value='upload' className='btn' type="submit">Poster</button>
         </form>
       </div>
     </div>

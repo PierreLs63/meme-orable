@@ -24,10 +24,15 @@
 .btn-close{
     cursor: pointer;
     border: 1px solid #999;
-    border-radius: 50%;
     position: fixed;
     right: calc(25% - 28px);
     top: 15px;
+    background-color : #525252;
+    color: rgb(174, 174, 174);
+}
+.btn-close:hover{
+    background-color : #ff0000;
+    color: white;
 }
 
 .fileInput{
