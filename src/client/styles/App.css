@@ -170,3 +170,13 @@
   width: 50px;
   margin-right: 5px; /* Ajouter une marge à droite pour espacer le cœur du nombre de likes */
 }
+
+.card-container {
+  position: relative;
+}
+
+.heart-image-container {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

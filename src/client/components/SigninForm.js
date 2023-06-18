@@ -65,17 +65,17 @@ const SigninForm = (props) => {
     } else {
       setErrorMessage("Please fill in all form fields");
     }
+    localStorage.clear();
 
-    // Save credentials in local storage
-    // if(isChecked){
-    //   localStorage.setItem('email', email);
-    // }
 
     // Update state
     if (isValid) {
       try {
         const response = await axios.post("http://localhost:3001/auth/register", { pseudo,email, password });
+                  const tokenU = response.data.token; // Récupérer le token à partir de la réponse
 
+        localStorage.setItem('token', JSON.stringify(tokenU));
+        localStorage.setItem('userId', JSON.stringify(response.data.user._id));
         // Handle the response from the server
         if (response.status === 201) {
           // Login successful

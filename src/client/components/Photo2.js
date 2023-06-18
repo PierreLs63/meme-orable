@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import coeurr from '../data/coeura.png';
-import coeurn from '../data/coeurna.png';
+
 import Utilisateur from './Utilisateur';
 import '../styles/App.css';
 import Popup from "./popup";
@@ -136,17 +135,22 @@ content={<div>
       <div className="container">
         <div className="content-wrapper">
           {filteredPhotoList.length > 0 ? (
-            filteredPhotoList.map(({ _id, picturePath, pseudo, userId, description, likes }, index) => (
+            filteredPhotoList.map(({ _id, picturePath, pseudo, userId, description, likes,timeEnd }, index) => (
+              {timeEnd},
               <Card
                 name={pseudo}
-                isLiked={true}
+                isLikes2={Object.keys(likes).includes(authUserId)}
+                likes={Object.keys(likes).length}
                 source={`http://localhost:3001/assets/${picturePath}`}
                 description={description}
-                createAt="1"
-                timeEnd="90000"
+                
+                timeEnd2={timeEnd}
+                handleClick={handleClick}
+                id= {_id}
               >
               
               </Card>
+               
             ))
           ) : (
             authToken

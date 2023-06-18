@@ -80,3 +80,8 @@ body{
   object-fit: contain;
   border-radius: 5px;
 }
+
+.heart-image {
+  width: 50px; /* Ajoutez la taille souhaitée en pixels */
+  height: 50px; /* Ajoutez la taille souhaitée en pixels */
+}
