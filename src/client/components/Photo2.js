@@ -131,11 +131,10 @@ content={<div>
 />}
 <button className = "button" onClick={() => deconection()}>Déconnexion</button>
 
-      <Utilisateur  utilisateurs={utilisateurs} updateSelU={updateSelU} />
       <div className="container">
         <div className="content-wrapper">
           {filteredPhotoList.length > 0 ? (
-            filteredPhotoList.map(({ _id, picturePath, pseudo, userId, description, likes,timeEnd }, index) => (
+            filteredPhotoList.map(({ _id, picturePath, pseudo, description, likes,timeEnd,createdAt }, index) => (
               {timeEnd},
               <Card
                 name={pseudo}
@@ -143,8 +142,8 @@ content={<div>
                 likes={Object.keys(likes).length}
                 source={`http://localhost:3001/assets/${picturePath}`}
                 description={description}
-                
-                timeEnd2={timeEnd}
+                createdAt={createdAt}
+                timeEnd={timeEnd}
                 handleClick={handleClick}
                 id= {_id}
               >

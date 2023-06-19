@@ -87,7 +87,7 @@ const LoginForm = (props) => {
           
           
           //envoyer token et utilisatuer
-          navigate('/page1'); // Naviguer vers la page 1
+          navigate('/feed'); // Naviguer vers la feed
         } else {
           // Login failed
           setErrorMessage("Incorrect email or password.");
@@ -151,20 +151,7 @@ const LoginForm = (props) => {
             variant="outlined"
             size="small"
           />
-          <div className="checkbox">
-            <FormControlLabel
-              control={
-                <OrangeCheckbox
-                  checked={isChecked}
-                  title="checkbox"
-                  onChange={(e) => setIsChecked(e.target.checked)}
-                  name="checkbox"
-                  id="checkbox"
-                />
-              }
-              label="Remember me "
-            />
-          </div>
+          
         </div>
 
         <Button
